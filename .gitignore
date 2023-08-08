@@ -1,0 +1,10 @@
+/.idea
+/.ve
+/.pytest_cache
+/libcoverdls.egg-info
+__pycache__
+/.pytest_cache
+/libcoverdls.egg-info
+*~
+*.swp
+dist

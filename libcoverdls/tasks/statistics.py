@@ -1,7 +1,8 @@
 from collections import defaultdict
 
 from libcoverdls.base_task import AdditionalCheck
-from libcoverdls.utils import is_interest_current
+
+#from libcoverdls.utils import is_interest_current
 
 
 #class LegacyStatistics(AdditionalCheck):

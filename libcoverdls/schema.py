@@ -62,15 +62,15 @@ class SchemaRDLS:
         return
 
         # We look at the first statement to try to find a version
-        #statement = all_data[0]
+        # statement = all_data[0]
 
         # If version is not set at all, then we assume it's the default version
-        #if (
+        # if (
         #    not isinstance(statement, dict)
         #    or "publicationDetails" not in statement
         #    or not isinstance(statement["publicationDetails"], dict)
         #    or "bodsVersion" not in statement["publicationDetails"]
-        #):
+        # ):
         #    self.pkg_schema_url = self.config.config["schema_url"]
         #    self.schema_host = self.config.config["schema_url_host"]
         #    self.schema_version_attempted = self.config.config["schema_version"]
@@ -78,10 +78,10 @@ class SchemaRDLS:
         #    return
 
         # The statement is trying to set a version
-        #self.schema_version_attempted = statement["publicationDetails"]["bodsVersion"]
+        # self.schema_version_attempted = statement["publicationDetails"]["bodsVersion"]
 
         # A specified schema version must be a string
-        #if not isinstance(self.schema_version_attempted, str):
+        # if not isinstance(self.schema_version_attempted, str):
         #    # Return latest version, but with an error!
         #    self.schema_error = {
         #        "type": "unknown_schema_version_used",
@@ -97,7 +97,7 @@ class SchemaRDLS:
         #    return
 
         # The statement tries to specify a version which is not known.
-        #if self.schema_version_attempted not in self.config.config["schema_versions"]:
+        # if self.schema_version_attempted not in self.config.config["schema_versions"]:
         #    # Return latest version, but with an error!
         #    self.schema_error = {
         #        "type": "unknown_schema_version_used",
@@ -113,13 +113,13 @@ class SchemaRDLS:
         #    return
 
         # All checks passed - We have found a specified schema version!
-        #self.schema_version = self.schema_version_attempted
-        #self.pkg_schema_url = self.config.config["schema_versions"][
+        # self.schema_version = self.schema_version_attempted
+        # self.pkg_schema_url = self.config.config["schema_versions"][
         #    self.schema_version
-        #]["schema_url"]
-        #self.schema_host = self.config.config["schema_versions"][self.schema_version][
+        # ]["schema_url"]
+        # self.schema_host = self.config.config["schema_versions"][self.schema_version][
         #    "schema_url_host"
-        #]
+        # ]
 
     def get_entity_statement_types_list(self):
         for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:

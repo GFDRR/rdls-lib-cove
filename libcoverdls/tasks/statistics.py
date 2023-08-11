@@ -2,10 +2,10 @@ from collections import defaultdict
 
 from libcoverdls.base_task import AdditionalCheck
 
-#from libcoverdls.utils import is_interest_current
+# from libcoverdls.utils import is_interest_current
 
 
-#class LegacyStatistics(AdditionalCheck):
+# class LegacyStatistics(AdditionalCheck):
 #    """Before the AdditionalCheck system was implemented, all this code was together in one class.
 #    As we work on statistics in this class, we should move them to seperate classes if possible."""
 #
@@ -180,9 +180,9 @@ from libcoverdls.base_task import AdditionalCheck
 #        return data
 #
 #
-#class StatisticsCurrentOwnershipOrControlStatementsAndReplacesStatementsMissing(
+# class StatisticsCurrentOwnershipOrControlStatementsAndReplacesStatementsMissing(
 #    AdditionalCheck
-#):
+# ):
 #    def __init__(self, lib_cove_bods_config, schema_object):
 #        super().__init__(lib_cove_bods_config, schema_object)
 #        self.count_replaces_statements_missing = 0
@@ -219,7 +219,7 @@ from libcoverdls.base_task import AdditionalCheck
 #        return data
 #
 #
-#class StatisticAddress(AdditionalCheck):
+# class StatisticAddress(AdditionalCheck):
 #    def __init__(self, lib_cove_bods_config, schema_object):
 #        super().__init__(lib_cove_bods_config, schema_object)
 #        self.count_addresses = 0
@@ -268,7 +268,7 @@ from libcoverdls.base_task import AdditionalCheck
 #        return data
 #
 #
-#class StatisticOwnershipOrControlInterestDirectOrIndirect(AdditionalCheck):
+# class StatisticOwnershipOrControlInterestDirectOrIndirect(AdditionalCheck):
 #    @staticmethod
 #    def does_apply_to_schema(lib_cove_bods_config, schema_object) -> bool:
 #        return schema_object.is_schema_version_equal_to_or_greater_than("0.3")
@@ -305,7 +305,7 @@ from libcoverdls.base_task import AdditionalCheck
 #        }
 #
 #
-#class StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial(AdditionalCheck):
+# class StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial(AdditionalCheck):
 #    def __init__(self, lib_cove_bods_config, schema_object):
 #        super().__init__(lib_cove_bods_config, schema_object)
 #        self.stat = 0

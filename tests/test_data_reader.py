@@ -80,11 +80,11 @@ def test_sample_bad_statements_are_included_get_all_data_1():
     expected = [
         input[0],
         input[1],
-#        input[2],
-#        input[4],
-#        input[16],
-#        input[17],
-#        input[21],
+        #        input[2],
+        #        input[4],
+        #        input[16],
+        #        input[17],
+        #        input[21],
     ]
 
     data_reader = libcoverdls.data_reader.DataReader(

@@ -2,10 +2,10 @@ from libcove2.common import get_orgids_prefixes  # type: ignore
 
 from libcoverdls.base_task import AdditionalCheck
 
-#from libcoverdls.utils import get_year_from_bods_birthdate_or_deathdate
+# from libcoverdls.utils import get_year_from_bods_birthdate_or_deathdate
 
 
-#class LegacyChecks(AdditionalCheck):
+# class LegacyChecks(AdditionalCheck):
 #    """Before the AdditionalCheck system was implemented, all this code was together in one class.
 #    As we work on checks in this class, we should move them to seperate classes if possible.
 #    This now only has legacy checks that don't need to store a history.
@@ -236,7 +236,7 @@ from libcoverdls.base_task import AdditionalCheck
 #            )
 #
 #
-#class LegacyChecksNeedingHistory(AdditionalCheck):
+# class LegacyChecksNeedingHistory(AdditionalCheck):
 #    """Before the AdditionalCheck system was implemented, all this code was together in one class.
 #    As we work on checks in this class, we should move them to seperate classes if possible.
 #    This now only has legacy checks that need to store a history.
@@ -595,7 +595,7 @@ from libcoverdls.base_task import AdditionalCheck
 #                self.statement_ids_counted[statement_id] = 1
 #
 #
-#class CheckHasPublicListing(AdditionalCheck):
+# class CheckHasPublicListing(AdditionalCheck):
 #    @staticmethod
 #    def does_apply_to_schema(lib_cove_bods_config, schema_object) -> bool:
 #        return schema_object.is_schema_version_equal_to_or_greater_than("0.3")
@@ -620,7 +620,7 @@ from libcoverdls.base_task import AdditionalCheck
 #                    )
 #
 #
-#class CheckEntityTypeAndEntitySubtypeAlign(AdditionalCheck):
+# class CheckEntityTypeAndEntitySubtypeAlign(AdditionalCheck):
 #    @staticmethod
 #    def does_apply_to_schema(lib_cove_bods_config, schema_object) -> bool:
 #        return schema_object.is_schema_version_equal_to_or_greater_than("0.3")
@@ -647,7 +647,7 @@ from libcoverdls.base_task import AdditionalCheck
 #                    )
 #
 #
-#class CheckEntitySecurityListingsMICSCodes(AdditionalCheck):
+# class CheckEntitySecurityListingsMICSCodes(AdditionalCheck):
 #    def __init__(self, lib_cove_bods_config, schema_object):
 #        super().__init__(lib_cove_bods_config, schema_object)
 #

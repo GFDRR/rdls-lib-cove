@@ -1,9 +1,8 @@
-import datetime
 import os
 
 _schema_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data")
 
-LIB_COVE_BODS_CONFIG_DEFAULT = {
+LIB_COVE_RDLS_CONFIG_DEFAULT = {
     # These details are used if the data does not specify a version
     "schema_url": os.path.join(_schema_folder, "schema-0-1-0.json"),
     "schema_url_host": _schema_folder,

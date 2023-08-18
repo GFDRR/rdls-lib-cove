@@ -1,34 +1,33 @@
 import libcoverdls.data_reader
 import libcoverdls.tasks.checks
-import libcoverdls.tasks.peps
 import libcoverdls.tasks.statistics
 
 TASK_CLASSES = [
-    libcoverdls.tasks.checks.LegacyChecks,
-    libcoverdls.tasks.checks.LegacyChecksNeedingHistory,
-    libcoverdls.tasks.checks.CheckHasPublicListing,
-    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
-    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
-    libcoverdls.tasks.statistics.LegacyStatistics,
-    libcoverdls.tasks.statistics.StatisticsCurrentOwnershipOrControlStatementsAndReplacesStatementsMissing,
-    libcoverdls.tasks.statistics.StatisticAddress,
-    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
-    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
-    libcoverdls.tasks.peps.PEPForSchema02Only,
-    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
+#    libcoverdls.tasks.checks.LegacyChecks,
+#    libcoverdls.tasks.checks.LegacyChecksNeedingHistory,
+#    libcoverdls.tasks.checks.CheckHasPublicListing,
+#    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
+#    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
+#    libcoverdls.tasks.statistics.LegacyStatistics,
+#    libcoverdls.tasks.statistics.StatisticsCurrentOwnershipOrControlStatementsAndReplacesStatementsMissing,
+#    libcoverdls.tasks.statistics.StatisticAddress,
+#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
+#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
+#    libcoverdls.tasks.peps.PEPForSchema02Only,
+#    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
 ]
 
 TASK_CLASSES_IN_SAMPLE_MODE = [
-    libcoverdls.tasks.checks.LegacyChecks,
-    libcoverdls.tasks.checks.CheckHasPublicListing,
-    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
-    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
-    libcoverdls.tasks.statistics.LegacyStatistics,
-    libcoverdls.tasks.statistics.StatisticAddress,
-    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
-    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
-    libcoverdls.tasks.peps.PEPForSchema02Only,
-    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
+#    libcoverdls.tasks.checks.LegacyChecks,
+#    libcoverdls.tasks.checks.CheckHasPublicListing,
+#    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
+#    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
+#    libcoverdls.tasks.statistics.LegacyStatistics,
+#    libcoverdls.tasks.statistics.StatisticAddress,
+#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
+#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
+#    libcoverdls.tasks.peps.PEPForSchema02Only,
+#    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
 ]
 
 

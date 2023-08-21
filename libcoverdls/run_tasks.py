@@ -15,6 +15,10 @@ TASK_CLASSES = [
 #    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
 #    libcoverdls.tasks.peps.PEPForSchema02Only,
 #    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
+    libcoverdls.tasks.statistics.StatisticHazardDatasets,
+    libcoverdls.tasks.statistics.StatisticExposureDatasets,
+    libcoverdls.tasks.statistics.StatisticVulnerabilityDatasets,
+    libcoverdls.tasks.statistics.StatisticLossDatasets,
 ]
 
 TASK_CLASSES_IN_SAMPLE_MODE = [

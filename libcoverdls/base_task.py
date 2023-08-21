@@ -23,25 +23,31 @@ class AdditionalCheck:
     def does_apply_to_schema(lib_cove_rdls_config, schema_object) -> bool:
         return True
 
-    def check_statement_first_pass(self, statement):
+    def check_dataset_first_pass(self, statement):
         pass
 
-    def check_entity_statement_first_pass(self, statement):
+    def check_hazard_dataset_first_pass(self, statement):
         pass
 
-    def check_person_statement_first_pass(self, statement):
+    def check_exposure_dataset_first_pass(self, statement):
         pass
 
-    def check_ownership_or_control_statement_first_pass(self, statement):
+    def check_vulnerability_dataset_first_pass(self, statement):
         pass
 
-    def check_entity_statement_second_pass(self, statement):
+    def check_loss_dataset_first_pass(self, statement):
         pass
 
-    def check_person_statement_second_pass(self, statement):
+    def check_hazard_dataset_second_pass(self, statement):
         pass
 
-    def check_ownership_or_control_statement_second_pass(self, statement):
+    def check_exposure_dataset_second_pass(self, statement):
+        pass
+
+    def check_vulnerability_dataset_second_pass(self, statement):
+        pass
+
+    def check_loss_dataset_second_pass(self, statement):
         pass
 
     def final_checks(self):

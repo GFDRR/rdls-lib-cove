@@ -45,36 +45,38 @@ def process_additional_checks(
     all_data = data_reader.get_all_data()
 
     # First pass
-    for statement in all_data:
-        statement_type = statement.get("statementType")
+    for dataset in all_data:
+        risk_data_type = dataset.get("risk_data_type")
         for additional_check_instance in additional_check_instances:
-            additional_check_instance.check_statement_first_pass(statement)
-        if statement_type == "entityStatement":
+            additional_check_instance.check_dataset_first_pass(dataset)
+        if risk_data_type == "hazard":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_entity_statement_first_pass(statement)
-        elif statement_type == "personStatement":
+                additional_check_instance.check_hazard_dataset_first_pass(dataset)
+        elif risk_data_type == "exposure":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_person_statement_first_pass(statement)
-        elif statement_type == "ownershipOrControlStatement":
+                additional_check_instance.check_exposure_dataset_first_pass(dataest)
+        elif risk_data_type == "vulnerability":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_ownership_or_control_statement_first_pass(
-                    statement
-                )
+                additional_check_instance.check_vulnerability_dataset_first_pass(dataset)
+        elif risk_data_type == "loss":
+            for additional_check_instance in additional_check_instances:
+                additional_check_instance.check_loss_dataset_first_pass(dataset)
 
     # Second Pass
-    for statement in all_data:
-        statement_type = statement.get("statementType")
-        if statement_type == "entityStatement":
+    for dataset in all_data:
+        risk_data_type = dataset.get("risk_data_type")
+        if risk_data_type == "hazard":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_entity_statement_second_pass(statement)
-        elif statement_type == "personStatement":
+                additional_check_instance.check_hazard_dataset_second_pass(dataset)
+        elif risk_data_type == "exposure":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_person_statement_second_pass(statement)
-        elif statement_type == "ownershipOrControlStatement":
+                additional_check_instance.check_exposure_dataset_second_pass(dataset)
+        elif risk_data_type == "vulnerability":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_ownership_or_control_statement_second_pass(
-                    statement
-                )
+                additional_check_instance.check_vulnerability_dataset_second_pass(dataset)
+        elif risk_data_type == "loss":
+            for additional_check_instance in additional_check_instances:
+                additional_check_instance.check_loss_dataset_second_pass(dataset)
 
     # Final checks
     for additional_check_instance in additional_check_instances:

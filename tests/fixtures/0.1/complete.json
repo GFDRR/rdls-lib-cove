@@ -18,14 +18,21 @@
       "GBR"
     ],
     "bbox": [
-        0,
-        0,
-        0,
-        0
+      0,
+      0,
+      0,
+      0
     ],
-    "centroid": [
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
         0,
         0
+      ]
+    },
+    "centroid": [
+      0,
+      0
     ],
     "scale": "global",
     "gazetteerEntries": [
@@ -79,14 +86,21 @@
         "AFG"
       ],
       "bbox": [
-          0,
-          0,
-          0,
-          0
+        0,
+        0,
+        0,
+        0
       ],
-      "centroid": [
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
           0,
           0
+        ]
+      },
+      "centroid": [
+        0,
+        0
       ],
       "scale": "global",
       "gazetteerEntries": [
@@ -108,8 +122,8 @@
         "relationship": "discrete",
         "damage_scale_name": "EMS-98",
         "damage_states_names": [
-            "Example damage state 1",
-            " example damage state 2"
+          "Example damage state 1",
+          "example damage state 2"
         ]
       },
       "damage_to_loss": {
@@ -117,8 +131,8 @@
         "relationship": "discrete",
         "damage_scale_name": "EMS-98",
         "damage_states_names": [
-            "Example damage state 1",
-            " example damage state 2"
+          "Example damage state 1",
+          "example damage state 2"
         ]
       },
       "engineering_demand": {
@@ -193,9 +207,10 @@
       "id": "1",
       "name": "Example resource",
       "authorNames": [
-          "John Smith",
-          " Joe Bloggs"
+        "John Smith",
+        "Joe Bloggs"
       ],
+      "datePublished": "2023-01-01",
       "url": "http://www.example.com",
       "doi": "12345"
     }
@@ -233,14 +248,21 @@
             "AFG"
           ],
           "bbox": [
-              0,
-              0,
-              0,
-              0
+            0,
+            0,
+            0,
+            0
           ],
-          "centroid": [
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
               0,
               0
+            ]
+          },
+          "centroid": [
+            0,
+            0
           ],
           "scale": "global",
           "gazetteerEntries": [
@@ -312,9 +334,9 @@
               "deterministic": {
                 "index_criteria": "Criteria description",
                 "thresholds": [
-                    "1 (low)",
-                    " 2 (medium)",
-                    " 3 (high)"
+                  "1 (low)",
+                  "2 (medium)",
+                  "3 (high)"
                 ]
               }
             },

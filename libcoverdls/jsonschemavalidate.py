@@ -86,7 +86,7 @@ def oneOf_draft4(validator, oneOf, instance, schema):
                 context=all_errors,
             )
 
-    more_valid = [s for i, s in subschemas if validator.is_valid(instance, s)]
+    more_valid = [s for i, s in subschemas if validator.evolve(schema=s).is_valid(instance)]
     if more_valid:
         more_valid.append(first_valid)
         reprs = ", ".join(repr(schema) for schema in more_valid)
@@ -141,6 +141,8 @@ class RDLSValidationError:
     def json(self):
         """Return representation of this error in JSON."""
 
+        for name in self.__dir__():
+            print(name, getattr(self, name))
         path_ending = self._path[-1]
         if isinstance(self._path[-1], int) and len(self._path) >= 2:
             # We're dealing with elements in an array of items at this point

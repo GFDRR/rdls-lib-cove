@@ -1,7 +1,9 @@
-[
+{
+"datasets": [
 {},
 {"identifier": 123456789},
 {"identifier": {}},
 {"identifier": "c77fb08e-edb9-44a8-8226-88439585c243", "risk_data_type": 100},
 {"identifier": "c77fb08e-edb9-44a8-8226-88439585c243", "risk_data_type": "wrong type"}
 ]
+}

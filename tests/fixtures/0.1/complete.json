@@ -1,4 +1,5 @@
-[
+{
+"datasets": [
 {
   "id": "1",
   "title": "Example dataset",
@@ -361,3 +362,4 @@
   ]
 }
 ]
+}

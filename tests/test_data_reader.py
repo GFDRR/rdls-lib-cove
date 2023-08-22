@@ -11,7 +11,7 @@ def test_full_get_all_data_1():
     )
 
     with open(json_filename) as fp:
-        expected = json.load(fp)
+        expected = json.load(fp)["datasets"]
 
     data_reader = libcoverdls.data_reader.DataReader(json_filename)
     actual = data_reader.get_all_data()
@@ -29,7 +29,7 @@ def test_sample_but_no_change_get_all_data_1():
     )
 
     with open(json_filename) as fp:
-        expected = json.load(fp)
+        expected = json.load(fp)["datasets"]
 
     data_reader = libcoverdls.data_reader.DataReader(
         json_filename, sample_mode=True, sample_mode_max_row_count=5
@@ -50,7 +50,7 @@ def test_sample_some_removed_get_all_data_1():
     )
 
     with open(json_filename) as fp:
-        input = json.load(fp)
+        input = json.load(fp)["datasets"]
     expected = [
         input[0],
         input[1],
@@ -76,7 +76,7 @@ def test_sample_bad_statements_are_included_get_all_data_1():
     )
 
     with open(json_filename) as fp:
-        input = json.load(fp)
+        input = json.load(fp)["datasets"]
     expected = [
         input[0],
         input[1],

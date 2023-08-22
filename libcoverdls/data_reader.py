@@ -38,7 +38,7 @@ class DataReader:
             count = 0
 
             with open(self._filename, "rb") as fp:
-                for statement in ijson.items(fp, "item"):
+                for statement in ijson.items(fp, "datasets.item"):
                     # statementType = (
                     #    statement.get("statementType")
                     #    if isinstance(statement, dict)
@@ -68,4 +68,4 @@ class DataReader:
 
             # Full Mode
             with open(self._filename) as fp:
-                return json.load(fp)
+                return json.load(fp)['datasets']

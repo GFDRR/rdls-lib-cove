@@ -50,6 +50,7 @@ def process_additional_checks(
 
     # First pass
     for dataset in all_data:
+        print(dataset)
         risk_data_type = dataset.get("risk_data_type")
         for additional_check_instance in additional_check_instances:
             additional_check_instance.check_dataset_first_pass(dataset)
@@ -58,7 +59,7 @@ def process_additional_checks(
                 additional_check_instance.check_hazard_dataset_first_pass(dataset)
         elif risk_data_type == "exposure":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_exposure_dataset_first_pass(dataest)
+                additional_check_instance.check_exposure_dataset_first_pass(dataset)
         elif risk_data_type == "vulnerability":
             for additional_check_instance in additional_check_instances:
                 additional_check_instance.check_vulnerability_dataset_first_pass(dataset)

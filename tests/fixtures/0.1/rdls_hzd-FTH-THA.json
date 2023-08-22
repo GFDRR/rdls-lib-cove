@@ -1,541 +1,695 @@
 {
-    "datasets": [
-        {
-            "id": "FTH_THA",
-            "title": "Flood hazard maps (Thailand)",
-            "description": "Probabilistic modelling of fluvial and pluvial flood hazard",
-            "risk_data_type": "hazard",
-            "publisher": {
-                "name": "Fathom",
-                "url": "https://www.fathom.global/"
-            },
-            "version": "2",
-            "details": "The FATHOM flood-hazard model (previously known as SSBN), is a global gridded dataset of flood hazard produced at the global scale. It provides flood water extent and depth for a range of pluvial and fluvial hazard scenarios, expressed as “return period”, which indicates the probability of occurrence (i.e. once in 5, 10, 20, 50, 75, 100, 200, 250, 500, 750 and 1000 years). The Data are at 3 arc second (approximately 90m) resolution and have a global coverage between 56°S and 60°N. Each country set includes three subsets:\n- Fluvial Undefended (FU): no flood defence accounted\n- Fluvial Defended (FD): flood defence estimated by protection standards proxied by GDP (FloProS)\n- Pluvial Undefended (PU): pluvial cumulation hazard maps, no flood defence accounted",
-            "spatial": {
-                "countries": [
-                    "THA"
-                ],
-                "bbox": [
-                    96.72037,
-                    5.407344,
-                    105.72785,
-                    20.718323
-                ],
-                "scale": "national",
-                "gazetteerEntries": [
-                    {
-                        "id": "1",
-                        "scheme": "ISO 3166-2",
-                        "description": "TH"
-                    }
-                ]
-            },
-            "contact_point": {
-                "name": "Mattia Amadio",
-                "email": "mamadio@worldbank.org"
-            },
-            "creator": {
-                "name": "Mattia Amadio",
-                "email": "mamadio@worldbank.org"
-            },
-            "attributions": [
-                {
-                    "id": "1",
-                    "entity": {
-                        "name": "GFDRR",
-                        "url": "https://www.gfdrr.org"
-                    },
-                    "role": "resource_provider"
-                }
-            ],
-            "referenced_by": [
-                {
-                    "id": "1",
-                    "name": "A high-resolution global flood hazard model",
-                    "authorNames": [
-                        "Christopher C. Sampson",
-                        " Andrew M. Smith",
-                        " Paul D. Bates",
-                        " Jeffrey C. Neal",
-                        " Lorenzo Alfieri",
-                        " Jim E. Freer"
-                    ],
-                    "datePublished": "2015-08-18",
-                    "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015WR016954",
-                    "doi": "10.1002/2015WR016954"
-                }
-            ],
-            "resources": [
-                {
-                    "id": "1",
-                    "title": "Fluvial hazard - Undefended",
-                    "description": "Fluvial flood hazard maps (10), not accounting any flood defence",
-                    "format": "geotiff",
-                    "spatial_resolution": 90,
-                    "coordinate_system": "4326"
-                },
-                {
-                    "id": "2",
-                    "title": "Fluvial hazard - Defended",
-                    "description": "Fluvial flood hazard maps (10), accounting for flood defence (estimate)",
-                    "format": "geotiff",
-                    "spatial_resolution": 90,
-                    "coordinate_system": "4326"
-                },
-                {
-                    "id": "3",
-                    "title": "Pluvial hazard - Undefended",
-                    "description": "Pluvial flood hazard maps (10), not accounting any flood defence",
-                    "format": "geotiff",
-                    "spatial_resolution": 90,
-                    "coordinate_system": "4326"
-                }
-            ],
-            "hazard": {
-                "event_sets": [
-                    {
-                        "id": "1",
-                        "analysis_type": "probabilistic",
-                        "calculation_method": "simulated",
-                        "event_count": 10,
-                        "occurrence_range": "1/10 to 1/1000 years",
-                        "spatial": {
-                            "countries": [
-                                "THA"
-                            ],
-                            "scale": "national"
-                        },
-                        "events": [
-                            {
-                                "id": "1",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 5
-                                    }
-                                }
-                            },
-                            {
-                                "id": "2",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 10
-                                    }
-                                }
-                            },
-                            {
-                                "id": "3",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 20
-                                    }
-                                }
-                            },
-                            {
-                                "id": "4",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 50
-                                    }
-                                }
-                            },
-                            {
-                                "id": "5",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 75
-                                    }
-                                }
-                            },
-                            {
-                                "id": "6",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 100
-                                    }
-                                }
-                            },
-                            {
-                                "id": "7",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 200
-                                    }
-                                }
-                            },
-                            {
-                                "id": "8",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 250
-                                    }
-                                }
-                            },
-                            {
-                                "id": "9",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 500
-                                    }
-                                }
-                            },
-                            {
-                                "id": "10",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 750
-                                    }
-                                }
-                            }
-                        ],
-                        "hazards": [
-                            {
-                                "id": "1",
-                                "type": "flood",
-                                "processes": [
-                                    "fluvial_flood"
-                                ],
-                                "intensity_measure": "fl_wd:m"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "2",
-                        "analysis_type": "probabilistic",
-                        "calculation_method": "simulated",
-                        "event_count": 10,
-                        "occurrence_range": "1/10 to 1/1000 years",
-                        "spatial": {
-                            "countries": [
-                                "THA"
-                            ],
-                            "scale": "national"
-                        },
-                        "events": [
-                            {
-                                "id": "1",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 1000
-                                    }
-                                }
-                            },
-                            {
-                                "id": "2",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 5
-                                    }
-                                }
-                            },
-                            {
-                                "id": "3",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 10
-                                    }
-                                }
-                            },
-                            {
-                                "id": "4",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 20
-                                    }
-                                }
-                            },
-                            {
-                                "id": "5",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 50
-                                    }
-                                }
-                            },
-                            {
-                                "id": "6",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 75
-                                    }
-                                }
-                            },
-                            {
-                                "id": "7",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 100
-                                    }
-                                }
-                            },
-                            {
-                                "id": "8",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 200
-                                    }
-                                }
-                            },
-                            {
-                                "id": "9",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 250
-                                    }
-                                }
-                            },
-                            {
-                                "id": "10",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 500
-                                    }
-                                }
-                            }
-                        ],
-                        "hazards": [
-                            {
-                                "id": "1",
-                                "type": "flood",
-                                "processes": [
-                                    "fluvial_flood"
-                                ],
-                                "intensity_measure": "fl_wd:m"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "3",
-                        "analysis_type": "probabilistic",
-                        "calculation_method": "simulated",
-                        "event_count": 10,
-                        "occurrence_range": "1/10 to 1/1000 years",
-                        "spatial": {
-                            "countries": [
-                                "THA"
-                            ],
-                            "scale": "national"
-                        },
-                        "events": [
-                            {
-                                "id": "1",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 750
-                                    }
-                                }
-                            },
-                            {
-                                "id": "2",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 1000
-                                    }
-                                }
-                            },
-                            {
-                                "id": "3",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 5
-                                    }
-                                }
-                            },
-                            {
-                                "id": "4",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 10
-                                    }
-                                }
-                            },
-                            {
-                                "id": "5",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 20
-                                    }
-                                }
-                            },
-                            {
-                                "id": "6",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 50
-                                    }
-                                }
-                            },
-                            {
-                                "id": "7",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 75
-                                    }
-                                }
-                            },
-                            {
-                                "id": "8",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 100
-                                    }
-                                }
-                            },
-                            {
-                                "id": "9",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 200
-                                    }
-                                }
-                            },
-                            {
-                                "id": "10",
-                                "calculation_method": "simulated",
-                                "hazard": {
-                                    "intensity_measure": "fl_wd:m"
-                                },
-                                "occurrence": {
-                                    "probabilistic": {
-                                        "return_period": 250
-                                    }
-                                }
-                            }
-                        ],
-                        "hazards": [
-                            {
-                                "id": "2",
-                                "type": "flood",
-                                "processes": [
-                                    "pluvial_flood"
-                                ],
-                                "intensity_measure": "fl_wd:m"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "links": [
-                {
-                    "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
-                    "rel": "describedby"
-                }
-            ]
-        }
+"datasets": [
+{
+  "id": "FTH_THA",
+  "title": "Flood hazard maps (Thailand)",
+  "description": "Probabilistic modelling of fluvial and pluvial flood hazard",
+  "risk_data_type": "hazard",
+  "publisher": {
+    "name": "Fathom",
+    "url": "https://www.fathom.global/"
+  },
+  "version": "2",
+  "details": "The FATHOM flood-hazard model (previously known as SSBN), is a global gridded dataset of flood hazard produced at the global scale. It provides flood water extent and depth for a range of pluvial and fluvial hazard scenarios, expressed as “return period”, which indicates the probability of occurrence (i.e. once in 5, 10, 20, 50, 75, 100, 200, 250, 500, 750 and 1000 years). The Data are at 3 arc second (approximately 90m) resolution and have a global coverage between 56°S and 60°N. Each country set includes three subsets:\n- Fluvial Undefended (FU): no flood defence accounted\n- Fluvial Defended (FD): flood defence estimated by protection standards proxied by GDP (FloProS)\n- Pluvial Undefended (PU): pluvial cumulation hazard maps, no flood defence accounted",
+  "spatial": {
+    "countries": [
+      "THA"
+    ],
+    "bbox": [
+      96.72037,
+      5.407344,
+      105.72785,
+      20.718323
+    ],
+    "scale": "national",
+    "gazetteerEntries": [
+      {
+        "id": "TH",
+        "scheme": "ISO 3166-2",
+        "description": "Thailand"
+      }
     ]
+  },
+  "license": "commercial",
+  "contact_point": {
+    "name": "Mattia Amadio",
+    "email": "mamadio@worldbank.org"
+  },
+  "creator": {
+    "name": "Mattia Amadio",
+    "email": "mamadio@worldbank.org"
+  },
+  "attributions": [
+    {
+      "id": "1",
+      "entity": {
+        "name": "GFDRR",
+        "url": "https://www.gfdrr.org"
+      },
+      "role": "resource_provider"
+    }
+  ],
+  "referenced_by": [
+    {
+      "id": "1",
+      "name": "A high-resolution global flood hazard model",
+      "authorNames": [
+        "Christopher C. Sampson",
+        "Andrew M. Smith",
+        "Paul D. Bates",
+        "Jeffrey C. Neal",
+        "Lorenzo Alfieri",
+        "Jim E. Freer"
+      ],
+      "datePublished": "2015-08-18",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2015WR016954",
+      "doi": "10.1002/2015WR016954"
+    }
+  ],
+  "resources": [
+    {
+      "id": "1",
+      "title": "Fluvial hazard - Undefended",
+      "description": "Fluvial flood hazard maps (10), not accounting any flood defence",
+      "format": "geotiff",
+      "spatial_resolution": 90,
+      "coordinate_system": "4326",
+      "url": "http://example.com/FTH-THA-fluvial-undefended"
+    },
+    {
+      "id": "2",
+      "title": "Fluvial hazard - Defended",
+      "description": "Fluvial flood hazard maps (10), accounting for flood defence (estimate)",
+      "format": "geotiff",
+      "spatial_resolution": 90,
+      "coordinate_system": "4326",
+      "url": "http://example.com/FTH-THA-fluvial-defended"
+    },
+    {
+      "id": "3",
+      "title": "Pluvial hazard - Undefended",
+      "description": "Pluvial flood hazard maps (10), not accounting any flood defence",
+      "format": "geotiff",
+      "spatial_resolution": 90,
+      "coordinate_system": "4326",
+      "url": "http://example.com/FTH-THA-pluvial-undefended"
+    }
+  ],
+  "hazard": {
+    "event_sets": [
+      {
+        "id": "1",
+        "analysis_type": "probabilistic",
+        "calculation_method": "simulated",
+        "event_count": 10,
+        "occurrence_range": "1/10 to 1/1000 years",
+        "spatial": {
+          "countries": [
+            "THA"
+          ],
+          "scale": "national"
+        },
+        "events": [
+          {
+            "id": "1",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "1",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 5
+              }
+            }
+          },
+          {
+            "id": "2",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "2",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10
+              }
+            }
+          },
+          {
+            "id": "3",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "3",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 20
+              }
+            }
+          },
+          {
+            "id": "4",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "4",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 50
+              }
+            }
+          },
+          {
+            "id": "5",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "5",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 75
+              }
+            }
+          },
+          {
+            "id": "6",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "6",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 100
+              }
+            }
+          },
+          {
+            "id": "7",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "7",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 200
+              }
+            }
+          },
+          {
+            "id": "8",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "8",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 250
+              }
+            }
+          },
+          {
+            "id": "9",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "9",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 500
+              }
+            }
+          },
+          {
+            "id": "10",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "10",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 750
+              }
+            }
+          }
+        ],
+        "hazards": [
+          {
+            "id": "1",
+            "type": "flood",
+            "processes": [
+              "fluvial_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "analysis_type": "probabilistic",
+        "calculation_method": "simulated",
+        "event_count": 10,
+        "occurrence_range": "1/10 to 1/1000 years",
+        "spatial": {
+          "countries": [
+            "THA"
+          ],
+          "scale": "national"
+        },
+        "events": [
+          {
+            "id": "1",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "1",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 1000
+              }
+            }
+          },
+          {
+            "id": "2",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "2",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 5
+              }
+            }
+          },
+          {
+            "id": "3",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "3",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10
+              }
+            }
+          },
+          {
+            "id": "4",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "4",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 20
+              }
+            }
+          },
+          {
+            "id": "5",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "5",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 50
+              }
+            }
+          },
+          {
+            "id": "6",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "6",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 75
+              }
+            }
+          },
+          {
+            "id": "7",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "7",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 100
+              }
+            }
+          },
+          {
+            "id": "8",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "8",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 200
+              }
+            }
+          },
+          {
+            "id": "9",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "9",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 250
+              }
+            }
+          },
+          {
+            "id": "10",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "10",
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 500
+              }
+            }
+          }
+        ],
+        "hazards": [
+          {
+            "id": "1",
+            "type": "flood",
+            "processes": [
+              "fluvial_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "analysis_type": "probabilistic",
+        "calculation_method": "simulated",
+        "event_count": 10,
+        "occurrence_range": "1/10 to 1/1000 years",
+        "spatial": {
+          "countries": [
+            "THA"
+          ],
+          "scale": "national"
+        },
+        "events": [
+          {
+            "id": "1",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "1",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 750
+              }
+            }
+          },
+          {
+            "id": "2",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "2",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 1000
+              }
+            }
+          },
+          {
+            "id": "3",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "3",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 5
+              }
+            }
+          },
+          {
+            "id": "4",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "4",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10
+              }
+            }
+          },
+          {
+            "id": "5",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "5",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 20
+              }
+            }
+          },
+          {
+            "id": "6",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "6",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 50
+              }
+            }
+          },
+          {
+            "id": "7",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "7",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 75
+              }
+            }
+          },
+          {
+            "id": "8",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "8",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 100
+              }
+            }
+          },
+          {
+            "id": "9",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "9",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 200
+              }
+            }
+          },
+          {
+            "id": "10",
+            "calculation_method": "simulated",
+            "hazard": {
+              "id": "10",
+              "type": "flood",
+              "processes": [
+                "pluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 250
+              }
+            }
+          }
+        ],
+        "hazards": [
+          {
+            "id": "2",
+            "type": "flood",
+            "processes": [
+              "pluvial_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          }
+        ]
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+      "rel": "describedBy"
+    }
+  ]
+}
+]
 }

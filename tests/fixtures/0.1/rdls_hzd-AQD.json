@@ -15,14 +15,14 @@
   "spatial": {
     "scale": "global"
   },
+  "license": "CC-BY-4.0",
   "contact_point": {
     "name": "Mattia Amadio",
     "email": "mamadio@worldbank.org"
   },
   "creator": {
-    "name":"Water Resource Institute"
+    "name": "Water Resource Institute"
   },
-  "license": "CC-BY-4.0",
   "attributions": [
     {
       "id": "1",
@@ -72,6 +72,7 @@
             "id": "1",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "1",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -88,6 +89,7 @@
             "id": "2",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "2",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -104,6 +106,7 @@
             "id": "3",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "3",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -120,6 +123,7 @@
             "id": "4",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "4",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -136,6 +140,7 @@
             "id": "5",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "5",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -152,6 +157,7 @@
             "id": "6",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "6",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -168,6 +174,7 @@
             "id": "7",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "7",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -184,6 +191,7 @@
             "id": "8",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "8",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -200,6 +208,7 @@
             "id": "9",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "9",
               "type": "flood",
               "processes": [
                 "fluvial_flood"
@@ -221,14 +230,6 @@
               "fluvial_flood"
             ],
             "intensity_measure": "fl_wd:m"
-          },
-          {
-            "id": "2",
-            "type": "flood",
-            "processes": [
-              "coastal_flood"
-            ],
-            "intensity_measure": "fl_wd:m"
           }
         ]
       },
@@ -247,6 +248,7 @@
             "id": "1",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "1",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -268,6 +270,7 @@
             "id": "2",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "2",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -289,6 +292,7 @@
             "id": "3",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "3",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -310,6 +314,7 @@
             "id": "4",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "4",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -331,6 +336,7 @@
             "id": "5",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "5",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -352,6 +358,7 @@
             "id": "6",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "6",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -373,6 +380,7 @@
             "id": "7",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "7",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -394,6 +402,7 @@
             "id": "8",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "8",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -415,6 +424,7 @@
             "id": "9",
             "calculation_method": "simulated",
             "hazard": {
+              "id": "9",
               "type": "coastal_flood",
               "processes": [
                 "coastal_flood"
@@ -432,6 +442,16 @@
               }
             }
           }
+        ],
+        "hazards": [
+          {
+            "id": "2",
+            "type": "coastal_flood",
+            "processes": [
+              "coastal_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          }
         ]
       }
     ]
@@ -439,7 +459,7 @@
   "links": [
     {
       "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
-      "rel": "describedBy"
+      "rel": "describedby"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-    "main": [
+    "datasets": [
         {
             "id": "FTH_example",
             "title": "FATHOM flood hazard maps",

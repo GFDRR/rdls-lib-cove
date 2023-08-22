@@ -3,10 +3,6 @@
   "$id": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
   "title": "Risk dataset (Risk Data Library Schema)",
   "description": "A risk dataset described using metadata structured according to the [Risk Data Library Standard](https://docs.riskdatalibrary.org/).",
-  "type": "array",
-  "items": {
-    "oneOf": [
-      {
   "type": "object",
   "required": [
     "id",
@@ -815,9 +811,6 @@
       "minItems": 1,
       "uniqueItems": true
     }
-  }
-      }
-    ]
   },
   "$defs": {
     "Resource": {

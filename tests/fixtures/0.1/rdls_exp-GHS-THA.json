@@ -1,5 +1,5 @@
 {
-    "main": [
+"datasets": [
         {
             "id": "GHS_THA",
             "title": "Global Human Settlement layer (Thailand)",
@@ -88,5 +88,5 @@
                 }
             ]
         }
-    ]
+]
 }

@@ -50,7 +50,7 @@ def process_additional_checks(
 
     # First pass
     for dataset in all_data:
-        print(dataset)
+        #print(dataset)
         risk_data_type = dataset.get("risk_data_type")
         for additional_check_instance in additional_check_instances:
             additional_check_instance.check_dataset_first_pass(dataset)

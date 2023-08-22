@@ -104,11 +104,13 @@ class JSONSchemaValidator:
         validator = Draft4Validator(
             schema=self._schema._pkg_schema_obj, format_checker=FormatChecker()
         )
-        validator.VALIDATORS["oneOf"] = oneOf_draft4
+        #validator.VALIDATORS["oneOf"] = oneOf_draft4
         output = []
         all_data = data_reader.get_all_data()
-        for e in validator.iter_errors(all_data):
-            output.append(RDLSValidationError(e, all_data, self._schema))
+        for dataset in all_data:
+            #print("Dataset:", type(dataset))
+            for e in validator.iter_errors(dataset):
+               output.append(RDLSValidationError(e, dataset, self._schema))
         return output
 
 
@@ -141,15 +143,17 @@ class RDLSValidationError:
     def json(self):
         """Return representation of this error in JSON."""
 
-        for name in self.__dir__():
-            print(name, getattr(self, name))
-        path_ending = self._path[-1]
-        if isinstance(self._path[-1], int) and len(self._path) >= 2:
-            # We're dealing with elements in an array of items at this point
-            path_ending = "{}/[number]".format(self._path[-2])
-        elif isinstance(self._path[0], int) and len(self._path) == 1:
-            path_ending = "[number]"
-
+        #for name in self.__dir__():
+        #    print(name, getattr(self, name))
+        if len(self._path) > 0:
+            path_ending = self._path[-1]
+            if isinstance(self._path[-1], int) and len(self._path) >= 2:
+                # We're dealing with elements in an array of items at this point
+                path_ending = "{}/[number]".format(self._path[-2])
+            elif isinstance(self._path[0], int) and len(self._path) == 1:
+                path_ending = "[number]"
+        else:
+            path_ending = ""
         return {
             "message": self._message,
             "path": list(self._path),

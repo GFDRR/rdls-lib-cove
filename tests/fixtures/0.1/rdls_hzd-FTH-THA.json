@@ -1,4 +1,5 @@
-[
+{
+    "datasets": [
         {
             "id": "FTH_THA",
             "title": "Flood hazard maps (Thailand)",
@@ -536,4 +537,5 @@
                 }
             ]
         }
-]
+    ]
+}

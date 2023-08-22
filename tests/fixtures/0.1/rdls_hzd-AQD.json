@@ -1,0 +1,447 @@
+{
+"datasets": [
+{
+  "id": "https://www.wri.org/data/aqueduct-floods-hazard-maps",
+  "title": "Aqueduct Floods Hazard Maps",
+  "description": "Aqueduct Floods is an online platform that measures riverine and coastal flood risks under both current baseline conditions and future projections in 2030, 2050, an 2080. In addition to providing hazard maps and assessing risks, Aqueduct Floods enables its users to conduct comprehensive cost-benefit analysis to evaluate the value of dike flood protection strategies.",
+  "risk_data_type": "hazard",
+  "publisher": {
+    "name": "Water Resource Institute",
+    "url": "https://www.wri.org"
+  },
+  "version": "2020",
+  "project": "Aqueduct",
+  "details": "The Aqueduct flood-hazard model is a global gridded dataset of flood hazard produced at the global scale. It provides flood water extent and depth for a range of pluvial and fluvial hazard scenarios, expressed as “return period”, which indicates the probability of occurrence (i.e. once in 2, 5, 10, 20, 50, 100, 250, 500 and 1000 years). The Data are at 1 km resolution and have a global coverage.",
+  "spatial": {
+    "scale": "global"
+  },
+  "contact_point": {
+    "name": "Mattia Amadio",
+    "email": "mamadio@worldbank.org"
+  },
+  "creator": {
+    "name":"Water Resource Institute"
+  },
+  "license": "CC-BY-4.0",
+  "attributions": [
+    {
+      "id": "1",
+      "entity": {
+        "name": "Water Resource Institute",
+        "url": "https://www.wri.org/data/aqueduct-floods-hazard-maps"
+      },
+      "role": "resource_provider"
+    }
+  ],
+  "referenced_by": [
+    {
+      "id": "1",
+      "name": "Aqueduct Floods Methodology ",
+      "authorNames": [
+        "Philip J. Ward"
+      ],
+      "datePublished": "2020-05-23",
+      "url": "https://files.wri.org/d8/s3fs-public/aqueduct-floods-methodology.pdf"
+    }
+  ],
+  "resources": [
+    {
+      "id": "1",
+      "title": "Flood hazard maps ",
+      "description": "Collection of fluvial and pluvial hazard maps; baseline and climate scenarios",
+      "format": "geotiff",
+      "spatial_resolution": 1000,
+      "coordinate_system": "4326",
+      "url": "http://wri-projects.s3.amazonaws.com/AqueductFloodTool/download/v2/index.html"
+    }
+  ],
+  "hazard": {
+    "event_sets": [
+      {
+        "id": "1",
+        "analysis_type": "probabilistic",
+        "frequency_distribution": "generalized_extreme_value",
+        "calculation_method": "simulated",
+        "event_count": 9,
+        "occurrence_range": "1/2 to 1/1000 years",
+        "spatial": {
+          "scale": "global"
+        },
+        "events": [
+          {
+            "id": "1",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 2
+              }
+            }
+          },
+          {
+            "id": "2",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 5
+              }
+            }
+          },
+          {
+            "id": "3",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10
+              }
+            }
+          },
+          {
+            "id": "4",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 25
+              }
+            }
+          },
+          {
+            "id": "5",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 50
+              }
+            }
+          },
+          {
+            "id": "6",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 100
+              }
+            }
+          },
+          {
+            "id": "7",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 250
+              }
+            }
+          },
+          {
+            "id": "8",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 500
+              }
+            }
+          },
+          {
+            "id": "9",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "flood",
+              "processes": [
+                "fluvial_flood"
+              ],
+              "intensity_measure": "fl_wd:m"
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 1000
+              }
+            }
+          }
+        ],
+        "hazards": [
+          {
+            "id": "1",
+            "type": "flood",
+            "processes": [
+              "fluvial_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          },
+          {
+            "id": "2",
+            "type": "flood",
+            "processes": [
+              "coastal_flood"
+            ],
+            "intensity_measure": "fl_wd:m"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "analysis_type": "probabilistic",
+        "frequency_distribution": "generalized_extreme_value",
+        "calculation_method": "simulated",
+        "event_count": 9,
+        "occurrence_range": "1/2 to 1/1000 years",
+        "spatial": {
+          "scale": "global"
+        },
+        "events": [
+          {
+            "id": "1",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 2
+              }
+            }
+          },
+          {
+            "id": "2",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 5
+              }
+            }
+          },
+          {
+            "id": "3",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10
+              }
+            }
+          },
+          {
+            "id": "4",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 25
+              }
+            }
+          },
+          {
+            "id": "5",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 50
+              }
+            }
+          },
+          {
+            "id": "6",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 100
+              }
+            }
+          },
+          {
+            "id": "7",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 250
+              }
+            }
+          },
+          {
+            "id": "8",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 500
+              }
+            }
+          },
+          {
+            "id": "9",
+            "calculation_method": "simulated",
+            "hazard": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "fl_wd:m",
+              "trigger": {
+                "processes": [
+                  "storm_surge"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 1000
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+      "rel": "describedBy"
+    }
+  ]
+}
+]
+}

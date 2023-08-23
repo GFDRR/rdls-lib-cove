@@ -28,6 +28,7 @@ class SchemaRDLS:
         self.schema_version = None
         # ... resources for the version we are actually using
         self.pkg_schema_url = None
+        self.schema_url = None
         self.schema_host = None
         # ... any error encountered when working out the version
         self.schema_error: Optional[dict] = None
@@ -215,13 +216,13 @@ class SchemaRDLS:
 
     @cached_property
     def pkg_schema_str(self):
-        uri_scheme = urlparse(self.schema_pkg_url).scheme
+        uri_scheme = urlparse(self.pkg_schema_url).scheme
         if uri_scheme == "http" or uri_scheme == "https":
             raise NotImplementedError(
                 "Downloading schema files over HTTP/HTTPS is not supported"
             )
         else:
-            with open(self.schema_pkg_url) as fp:
+            with open(self.pkg_schema_url) as fp:
                 return fp.read()
 
     @property

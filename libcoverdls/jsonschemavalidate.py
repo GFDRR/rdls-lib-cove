@@ -3,7 +3,7 @@ from decimal import Decimal
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
-from jsonschema.validators import Draft4Validator
+from jsonschema.validators import Draft4Validator, Draft202012Validator
 
 import libcoverdls.data_reader
 from libcoverdls.schema import SchemaRDLS
@@ -101,7 +101,7 @@ class JSONSchemaValidator:
 
     def validate(self, data_reader: libcoverdls.data_reader.DataReader) -> list:
         """Call with data. Results are returned."""
-        validator = Draft4Validator(
+        validator = Draft202012Validator(
             schema=self._schema._pkg_schema_obj, format_checker=FormatChecker()
         )
         #validator.VALIDATORS["oneOf"] = oneOf_draft4

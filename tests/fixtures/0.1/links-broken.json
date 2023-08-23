@@ -1,0 +1,16 @@
+{
+  "datasets": [
+    {
+      "links": [
+        {
+          "rel": "test",
+          "href": "http://www.example.com"
+        },
+        {
+          "rel": "describedby",
+          "href": "http://www.example.com"
+        }
+      ]
+    }
+  ]
+}

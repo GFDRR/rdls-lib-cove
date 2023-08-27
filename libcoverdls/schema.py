@@ -1,4 +1,5 @@
 import json
+import jsonref
 from typing import Optional
 from urllib.parse import urlparse
 
@@ -212,7 +213,7 @@ class SchemaRDLS:
         )
 
     def get_package_schema_fields(self) -> set:
-        return set(schema_dict_fields_generator(self._pkg_schema_obj))
+        return set(schema_dict_fields_generator(self._pkg_schema_obj_ref))
 
     @cached_property
     def pkg_schema_str(self):
@@ -224,6 +225,10 @@ class SchemaRDLS:
         else:
             with open(self.pkg_schema_url) as fp:
                 return fp.read()
+
+    @property
+    def _pkg_schema_obj_ref(self):
+        return jsonref.loads(self.pkg_schema_str)
 
     @property
     def _pkg_schema_obj(self):

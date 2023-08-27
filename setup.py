@@ -15,6 +15,7 @@ setup(
         "libcove2",
         "packaging",
         "jsonschema",
+        "jsonref",
         "pytz",
         "ijson",
         # Required for jsonschema to validate URIs

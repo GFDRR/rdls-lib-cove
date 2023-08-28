@@ -99,6 +99,20 @@ class JSONSchemaValidator:
     def __init__(self, schema: SchemaRDLS):
         self._schema = schema
 
+    def _source_maps(self, data_reader):
+        directory = data_reader._filename.rsplit("/", 1)[0]
+        filename = data_reader._filename.split("/")[-1]
+        if filename == "unflattened.json":
+            cell_map_path = os.path.join(directory, "cell_source_map.json")
+            heading_map_path = os.path.join(directory, "heading_source_map.json")
+            if os.path.isfile(cell_map_path) and os.path.isfile(heading_map_path):
+                with open(cell_map_path) as cell_source_map_fp:
+                    cell_source_map = json.load(cell_source_map_fp)
+                with open(heading_map_path) as heading_source_map_fp:
+                    heading_source_map = json.load(heading_source_map_fp)
+                return cell_source_map, heading_source_map
+        return None, None
+
     def validate(self, data_reader: libcoverdls.data_reader.DataReader) -> list:
         """Call with data. Results are returned."""
         validator = Draft202012Validator(
@@ -106,11 +120,14 @@ class JSONSchemaValidator:
         )
         #validator.VALIDATORS["oneOf"] = oneOf_draft4
         output = []
+        cell_source_map, heading_source_map = self._source_maps(data_reader)
         all_data = data_reader.get_all_data()
         for dataset in all_data:
             #print("Dataset:", type(dataset))
             for e in validator.iter_errors(dataset):
-               output.append(RDLSValidationError(e, dataset, self._schema))
+               output.append(RDLSValidationError(e, dataset, self._schema,
+                                                 cell_source_map=cell_source_map,
+                                                 heading_source_map=heading_source_map))
         return output
 
 
@@ -122,6 +139,8 @@ class RDLSValidationError:
         json_schema_exceptions_validation_error: ValidationError,
         json_data: dict,
         schema: SchemaRDLS,
+        cell_source_map: dict = None,
+        heading_source_map: dict = None
     ):
         self._message = json_schema_exceptions_validation_error.message
         self._path = json_schema_exceptions_validation_error.path
@@ -132,6 +151,9 @@ class RDLSValidationError:
         self._instance = json_schema_exceptions_validation_error.instance
         self._extra = {}
 
+        self.cell_src_map = cell_source_map
+        self.heading_source_map = heading_source_map
+
         if self._validator == "required":
             if "'" in self._message:
                 self._extra["required_key_which_is_missing"] = self._message.split("'")[
@@ -139,6 +161,29 @@ class RDLSValidationError:
                 ]
             else:
                 self._extra["required_key_which_is_missing"] = self._message
+
+    def _spreadsheet_location(self):
+        path = "/".join(str(item) for item in self._path)
+        value = {"path": path}
+        cell_reference = self.cell_src_map.get(path)
+
+        if cell_reference:
+            first_reference = cell_reference[0]
+            if len(first_reference) == 4:
+                (
+                    value["sheet"],
+                    value["col_alpha"],
+                    value["row_number"],
+                    value["header"],
+                ) = first_reference
+            if len(first_reference) == 2:
+                value["sheet"], value["row_number"] = first_reference
+
+        heading = heading_src_map.get(f"{path_no_number}/{e.message}")
+        if heading:
+            field_name = heading[0][1]
+            value["header"] = heading[0][1]
+        return value
 
     def json(self):
         """Return representation of this error in JSON."""
@@ -154,7 +199,7 @@ class RDLSValidationError:
                 path_ending = "[number]"
         else:
             path_ending = ""
-        return {
+        data = {
             "message": self._message,
             "path": list(self._path),
             "path_ending": path_ending,
@@ -165,3 +210,8 @@ class RDLSValidationError:
             "instance": self._instance,
             "extra": self._extra,
         }
+        if self.cell_src_map:
+            location = self._spreadsheet_location()
+            data['location'] = location
+        return data
+

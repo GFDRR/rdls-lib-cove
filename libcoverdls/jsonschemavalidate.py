@@ -153,7 +153,7 @@ class RDLSValidationError:
         self._extra = {}
 
         self.cell_src_map = cell_source_map
-        self.heading_source_map = heading_source_map
+        self.heading_src_map = heading_source_map
 
         if self._validator == "required":
             if "'" in self._message:

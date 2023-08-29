@@ -180,7 +180,7 @@ class RDLSValidationError:
             if len(first_reference) == 2:
                 value["sheet"], value["row_number"] = first_reference
 
-        heading = heading_src_map.get(f"{path_no_number}/{e.message}")
+        heading = self.heading_src_map.get(f"{path_no_number}/{e.message}")
         if heading:
             field_name = heading[0][1]
             value["header"] = heading[0][1]

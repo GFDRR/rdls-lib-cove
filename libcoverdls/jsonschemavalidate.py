@@ -165,6 +165,9 @@ class RDLSValidationError:
 
     def _spreadsheet_location(self):
         path = "/".join(str(item) for item in self._path)
+        path_no_number = "/".join(
+            str(item) for item in self._path if not isinstance(item, int)
+        )
         value = {"path": path}
         cell_reference = self.cell_src_map.get(path)
 

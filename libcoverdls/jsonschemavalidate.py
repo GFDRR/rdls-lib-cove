@@ -168,7 +168,7 @@ class RDLSValidationError:
         path_no_number = "/".join(
             str(item) for item in self._path if not isinstance(item, int)
         )
-        value = {"path": path}
+        value = {"path": path, "raw_path": self._path}
         cell_reference = self.cell_src_map.get(path)
 
         if cell_reference:

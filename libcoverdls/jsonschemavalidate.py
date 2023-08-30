@@ -123,12 +123,13 @@ class JSONSchemaValidator:
         output = []
         cell_source_map, heading_source_map = self._source_maps(data_reader)
         all_data = data_reader.get_all_data()
-        for dataset in all_data:
+        for dataset_number, dataset in enumerate(all_data):
             #print("Dataset:", type(dataset))
             for e in validator.iter_errors(dataset):
                output.append(RDLSValidationError(e, dataset, self._schema,
                                                  cell_source_map=cell_source_map,
-                                                 heading_source_map=heading_source_map))
+                                                 heading_source_map=heading_source_map, 
+                                                 dataset_number=dataset_number))
         return output
 
 
@@ -141,7 +142,8 @@ class RDLSValidationError:
         json_data: dict,
         schema: SchemaRDLS,
         cell_source_map: dict = None,
-        heading_source_map: dict = None
+        heading_source_map: dict = None,
+        dataset_number=0
     ):
         self._message = json_schema_exceptions_validation_error.message
         self._path = json_schema_exceptions_validation_error.path
@@ -154,6 +156,7 @@ class RDLSValidationError:
 
         self.cell_src_map = cell_source_map
         self.heading_src_map = heading_source_map
+        self._dataset_number = dataset_number
 
         if self._validator == "required":
             if "'" in self._message:
@@ -165,10 +168,11 @@ class RDLSValidationError:
 
     def _spreadsheet_location(self):
         path = "/".join(str(item) for item in self._path)
+        path = f"datasets/{self._dataset_number}/{path}"
         path_no_number = "/".join(
             str(item) for item in self._path if not isinstance(item, int)
         )
-        value = {"path": path, "raw_path": self._path}
+        value = {"path": path}
         cell_reference = self.cell_src_map.get(path)
 
         if cell_reference:

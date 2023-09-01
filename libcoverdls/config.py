@@ -4,10 +4,10 @@ _schema_folder = os.path.join(os.path.dirname(os.path.realpath(__file__)), "data
 
 LIB_COVE_RDLS_CONFIG_DEFAULT = {
     # These details are used if the data does not specify a version
-    "schema_url": os.path.join(_schema_folder, "schema-0-1-0.json"),
+    "schema_url": os.path.join(_schema_folder, "schema-0-2-0.json"),
     "schema_pkg_url": os.path.join(_schema_folder, "rdls_package_schema.json"),
     "schema_url_host": _schema_folder,
-    "schema_version": "0.1",
+    "schema_version": "0.2",
     # But from 0.2 onwards, data should specify a version
     "schema_versions": {
         # "0.2": {
@@ -21,7 +21,7 @@ LIB_COVE_RDLS_CONFIG_DEFAULT = {
     },
     # In some cases we default to the latest schema version, so we need to know what the latest version is.
     # It should be a key that is in the 'schema_versions' data.
-    "schema_latest_version": "0.1",
+    "schema_latest_version": "0.2",
     # These default values are very wide on purpose. It is left to apps using this to tighten them up.
     # "bods_additional_checks_person_birthdate_min_year": 1,
     # "bods_additional_checks_person_birthdate_max_year": datetime.datetime.now().year,

@@ -206,7 +206,10 @@ class RDLSValidationError:
             elif isinstance(self._path[0], int) and len(self._path) == 1:
                 path_ending = "[number]"
         else:
-            path_ending = ""
+            if self._validator == "required":
+                path_ending = self._extra['required_key_which_is_missing']
+            else:
+                path_ending = ""
         data = {
             "message": self._message,
             "path": list(self._path),

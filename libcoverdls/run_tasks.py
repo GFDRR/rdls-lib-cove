@@ -48,6 +48,9 @@ def process_additional_checks(
     ]
     all_data = data_reader.get_all_data()
 
+    if not all_data:
+        return {"additional_checks": [], "statistics": {}}
+
     # First pass
     for dataset in all_data:
         #print(dataset)

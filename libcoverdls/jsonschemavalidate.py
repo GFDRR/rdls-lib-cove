@@ -1,6 +1,7 @@
 import os
 import json
 from decimal import Decimal
+from collections import namedtuple
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
@@ -132,14 +133,20 @@ class JSONSchemaValidator:
                                                  heading_source_map=heading_source_map, 
                                                  dataset_number=dataset_number))
         else:
-            e = {"message": "'datsets' is a required property",
-                 "path": [],
-                 "schema_path": ['datasets'],
-                 "validator": "required",
-                 "validator_value": "datasets",
-                 "context": None,
-                 "instance": all_data,
-                }
+            DummyError = namedtuple("DummyError", ["message",
+                                                   "path",
+                                                   "schema_path",
+                                                   "validator",
+                                                   "validator_value",
+                                                   "context",
+                                                   "instance"])
+            e = DummyError(message="'datsets' is a required property",
+                           path=[],
+                           schema_path=['datasets'],
+                           validator="required",
+                           validator_value="datasets",
+                           context=None,
+                           instance=all_data)
             output.append(RDLSValidationError(e, all_data, self._schema,
                                                  cell_source_map=cell_source_map,
                                                  heading_source_map=heading_source_map, 

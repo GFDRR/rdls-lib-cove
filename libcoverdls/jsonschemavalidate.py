@@ -123,13 +123,27 @@ class JSONSchemaValidator:
         output = []
         cell_source_map, heading_source_map = self._source_maps(data_reader)
         all_data = data_reader.get_all_data()
-        for dataset_number, dataset in enumerate(all_data):
-            #print("Dataset:", type(dataset))
-            for e in validator.iter_errors(dataset):
-               output.append(RDLSValidationError(e, dataset, self._schema,
+        if all_data:
+            for dataset_number, dataset in enumerate(all_data):
+                #print("Dataset:", type(dataset))
+                for e in validator.iter_errors(dataset):
+                    output.append(RDLSValidationError(e, dataset, self._schema,
                                                  cell_source_map=cell_source_map,
                                                  heading_source_map=heading_source_map, 
                                                  dataset_number=dataset_number))
+        else:
+            e = {"message": "'datsets' is a required property",
+                 "path": [],
+                 "schema_path": ['datasets'],
+                 "validator": "required",
+                 "validator_value": "datasets",
+                 "context": None,
+                 "instance": all_data,
+                }
+            output.append(RDLSValidationError(e, all_data, self._schema,
+                                                 cell_source_map=cell_source_map,
+                                                 heading_source_map=heading_source_map, 
+                                                 dataset_number=0))
         return output
 
 

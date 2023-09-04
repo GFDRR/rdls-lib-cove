@@ -68,4 +68,8 @@ class DataReader:
 
             # Full Mode
             with open(self._filename) as fp:
-                return json.load(fp)['datasets']
+                json_data = json.load(fp)
+                if 'datasets' in json_data:
+                    return json_data['datasets']
+                else:
+                    return None

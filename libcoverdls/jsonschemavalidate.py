@@ -140,7 +140,7 @@ class JSONSchemaValidator:
                                                    "validator_value",
                                                    "context",
                                                    "instance"])
-            e = DummyError(message="'datsets' is a required property",
+            e = DummyError(message="'datasets' is a required property",
                            path=[],
                            schema_path=['datasets'],
                            validator="required",

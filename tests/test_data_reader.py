@@ -7,7 +7,7 @@ import libcoverdls.data_reader
 def test_full_get_all_data_1():
 
     json_filename = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)), "fixtures", "0.1", "basic_1.json"
+        os.path.dirname(os.path.realpath(__file__)), "fixtures", "0.2", "basic_1.json"
     )
 
     with open(json_filename) as fp:
@@ -24,7 +24,7 @@ def test_sample_but_no_change_get_all_data_1():
     json_filename = os.path.join(
         os.path.dirname(os.path.realpath(__file__)),
         "fixtures",
-        "0.1",
+        "0.2",
         "basic_extra_1.json",
     )
 
@@ -45,7 +45,7 @@ def test_sample_some_removed_get_all_data_1():
     json_filename = os.path.join(
         os.path.dirname(os.path.realpath(__file__)),
         "fixtures",
-        "0.1",
+        "0.2",
         "basic_extra_1.json",
     )
 
@@ -71,7 +71,7 @@ def test_sample_bad_statements_are_included_get_all_data_1():
     json_filename = os.path.join(
         os.path.dirname(os.path.realpath(__file__)),
         "fixtures",
-        "0.1",
+        "0.2",
         "badfile_all_validation_errors.json",
     )
 

@@ -1,7 +1,6 @@
 import os
 import json
 from decimal import Decimal
-from collections import namedtuple
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
@@ -9,7 +8,7 @@ from jsonschema.validators import Draft4Validator, Draft202012Validator
 
 import libcoverdls.data_reader
 from libcoverdls.schema import SchemaRDLS
-
+from libcoverdls.utils import create_dummy_error, get_version_from_schema_url
 
 class NumberStr(float):
     def __init__(self, o):
@@ -126,27 +125,20 @@ class JSONSchemaValidator:
         all_data = data_reader.get_all_data()
         if all_data:
             for dataset_number, dataset in enumerate(all_data):
-                #print("Dataset:", type(dataset))
+                version = get_version_from_schema_url(dataset)
+                if not version or version != "0.2.0":
+                    e = create_dummy_error("Unsupported schema version", ['datasets'], "schema_version", "datasets", all_data)
+                    output.append(RDLSValidationError(e, all_data, self._schema,
+                                                 cell_source_map=cell_source_map,
+                                                 heading_source_map=heading_source_map, 
+                                                 dataset_number=0))
                 for e in validator.iter_errors(dataset):
                     output.append(RDLSValidationError(e, dataset, self._schema,
                                                  cell_source_map=cell_source_map,
                                                  heading_source_map=heading_source_map, 
                                                  dataset_number=dataset_number))
         else:
-            DummyError = namedtuple("DummyError", ["message",
-                                                   "path",
-                                                   "schema_path",
-                                                   "validator",
-                                                   "validator_value",
-                                                   "context",
-                                                   "instance"])
-            e = DummyError(message="'datasets' is a required property",
-                           path=[],
-                           schema_path=['datasets'],
-                           validator="required",
-                           validator_value="datasets",
-                           context=None,
-                           instance=all_data)
+            e = create_dummy_error("'datasets' is a required property", ['datasets'], "required", "datasets", all_data)
             output.append(RDLSValidationError(e, all_data, self._schema,
                                                  cell_source_map=cell_source_map,
                                                  heading_source_map=heading_source_map, 

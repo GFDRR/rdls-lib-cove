@@ -11,8 +11,8 @@ LIB_COVE_RDLS_CONFIG_DEFAULT = {
     # But from 0.2 onwards, data should specify a version
     "schema_versions": {
         "0.2": {
-           "schema_url": os.path.join(_schema_folder, "schema-0-2-0.json"),
-           "schema_url_host": _schema_folder,
+            "schema_url": os.path.join(_schema_folder, "schema-0-2-0.json"),
+            "schema_url_host": _schema_folder,
         },
     },
     # In some cases we default to the latest schema version, so we need to know what the latest version is.

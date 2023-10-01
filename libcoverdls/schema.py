@@ -2,7 +2,7 @@ import json
 from typing import Optional
 from urllib.parse import urlparse
 
-import jsonref # type: ignore
+import jsonref  # type: ignore
 from libcove2.common import schema_dict_fields_generator  # type: ignore
 from packaging import version as packaging_version
 

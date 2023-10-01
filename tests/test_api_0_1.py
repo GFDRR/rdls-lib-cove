@@ -1,10 +1,6 @@
-import json
 import os
 import tempfile
 
-import pytest
-
-from libcoverdls.config import LibCoveRDLSConfig
 from tests.api import rdls_json_output
 
 

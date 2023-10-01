@@ -1,10 +1,6 @@
-import json
 import os
 import tempfile
 
-import pytest
-
-from libcoverdls.config import LibCoveRDLSConfig
 from tests.api import rdls_json_output
 
 
@@ -14,7 +10,10 @@ def test_multiple_errors():
         prefix="lib-cove-rdls-tests-", dir=tempfile.gettempdir()
     )
     json_filename = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)), "fixtures", "0.2", "all_errors.json"
+        os.path.dirname(os.path.realpath(__file__)),
+        "fixtures",
+        "0.2",
+        "all_errors.json",
     )
 
     results = rdls_json_output(cove_temp_folder, json_filename)
@@ -28,5 +27,4 @@ def test_multiple_errors():
     assert results["validation_errors_count"] == 19
 
     assert results["additional_fields_count"] == 9
-    assert '/resources/url' in results["additional_fields"]
-
+    assert "/resources/url" in results["additional_fields"]

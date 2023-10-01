@@ -1,38 +1,18 @@
+from typing import List, Type
+
 import libcoverdls.data_reader
 import libcoverdls.tasks.checks
 import libcoverdls.tasks.statistics
+from libcoverdls.base_task import AdditionalCheck
 
-TASK_CLASSES = [
-#    libcoverdls.tasks.checks.LegacyChecks,
-#    libcoverdls.tasks.checks.LegacyChecksNeedingHistory,
-#    libcoverdls.tasks.checks.CheckHasPublicListing,
-#    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
-#    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
-#    libcoverdls.tasks.statistics.LegacyStatistics,
-#    libcoverdls.tasks.statistics.StatisticsCurrentOwnershipOrControlStatementsAndReplacesStatementsMissing,
-#    libcoverdls.tasks.statistics.StatisticAddress,
-#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
-#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
-#    libcoverdls.tasks.peps.PEPForSchema02Only,
-#    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
+TASK_CLASSES: List[Type[AdditionalCheck]] = [
     libcoverdls.tasks.statistics.StatisticHazardDatasets,
     libcoverdls.tasks.statistics.StatisticExposureDatasets,
     libcoverdls.tasks.statistics.StatisticVulnerabilityDatasets,
     libcoverdls.tasks.statistics.StatisticLossDatasets,
 ]
 
-TASK_CLASSES_IN_SAMPLE_MODE = [
-#    libcoverdls.tasks.checks.LegacyChecks,
-#    libcoverdls.tasks.checks.CheckHasPublicListing,
-#    libcoverdls.tasks.checks.CheckEntityTypeAndEntitySubtypeAlign,
-#    libcoverdls.tasks.checks.CheckEntitySecurityListingsMICSCodes,
-#    libcoverdls.tasks.statistics.LegacyStatistics,
-#    libcoverdls.tasks.statistics.StatisticAddress,
-#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlInterestDirectOrIndirect,
-#    libcoverdls.tasks.statistics.StatisticOwnershipOrControlWithAtLeastOneInterestBeneficial,
-#    libcoverdls.tasks.peps.PEPForSchema02Only,
-#    libcoverdls.tasks.peps.PEPForSchema03AndAbove,
-]
+TASK_CLASSES_IN_SAMPLE_MODE: List[Type[AdditionalCheck]] = []
 
 
 def process_additional_checks(
@@ -53,7 +33,6 @@ def process_additional_checks(
 
     # First pass
     for dataset in all_data:
-        #print(dataset)
         risk_data_type = dataset.get("risk_data_type")
         for additional_check_instance in additional_check_instances:
             additional_check_instance.check_dataset_first_pass(dataset)
@@ -65,7 +44,9 @@ def process_additional_checks(
                 additional_check_instance.check_exposure_dataset_first_pass(dataset)
         elif risk_data_type == "vulnerability":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_vulnerability_dataset_first_pass(dataset)
+                additional_check_instance.check_vulnerability_dataset_first_pass(
+                    dataset
+                )
         elif risk_data_type == "loss":
             for additional_check_instance in additional_check_instances:
                 additional_check_instance.check_loss_dataset_first_pass(dataset)
@@ -81,7 +62,9 @@ def process_additional_checks(
                 additional_check_instance.check_exposure_dataset_second_pass(dataset)
         elif risk_data_type == "vulnerability":
             for additional_check_instance in additional_check_instances:
-                additional_check_instance.check_vulnerability_dataset_second_pass(dataset)
+                additional_check_instance.check_vulnerability_dataset_second_pass(
+                    dataset
+                )
         elif risk_data_type == "loss":
             for additional_check_instance in additional_check_instances:
                 additional_check_instance.check_loss_dataset_second_pass(dataset)

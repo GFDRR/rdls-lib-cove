@@ -27,7 +27,6 @@ def test_missing_publisher_name():
     assert results["additional_checks_count"] == 0
 
     for error in results["validation_errors"]:
-        assert error['path_ending'] == 'publisher'
-        assert error['validator'] == 'required'
-        assert error['validator_value'] == ['name']
-
+        assert error["path_ending"] == "publisher"
+        assert error["validator"] == "required"
+        assert error["validator_value"] == ["name"]

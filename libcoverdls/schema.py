@@ -1,8 +1,8 @@
 import json
-import jsonref
 from typing import Optional
 from urllib.parse import urlparse
 
+import jsonref
 from libcove2.common import schema_dict_fields_generator  # type: ignore
 from packaging import version as packaging_version
 
@@ -126,86 +126,86 @@ class SchemaRDLS:
         #    "schema_url_host"
         # ]
 
-#    def get_entity_statement_types_list(self):
-#        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
-#            if (
-#                statement_schema["properties"]["statementType"]["enum"][0]
-#                == "entityStatement"
-#            ):
-#                return statement_schema["properties"]["entityType"]["enum"]
-#
-#    def get_person_statement_types_list(self):
-#        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
-#            if (
-#                statement_schema["properties"]["statementType"]["enum"][0]
-#                == "personStatement"
-#            ):
-#                return statement_schema["properties"]["personType"]["enum"]
-#
-#    def get_ownership_or_control_statement_interest_statement_types_list(self):
-#        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
-#            if (
-#                statement_schema["properties"]["statementType"]["enum"][0]
-#                == "ownershipOrControlStatement"
-#            ):
-#                return statement_schema["properties"]["interests"]["items"][
-#                    "properties"
-#                ]["type"]["enum"]
-#
-#    def get_ownership_or_control_statement_interest_direct_or_indirect_list(self):
-#        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
-#            if (
-#                statement_schema["properties"]["statementType"]["enum"][0]
-#                == "ownershipOrControlStatement"
-#            ):
-#                direct_or_indirect_json_schema = statement_schema["properties"][
-#                    "interests"
-#                ]["items"]["properties"].get("directOrIndirect")
-#                # This is only available in 0.3 and above.
-#                if isinstance(direct_or_indirect_json_schema, dict):
-#                    return direct_or_indirect_json_schema.get("enum")
-#                else:
-#                    return []
-#
-#    def get_person_statement_political_exposure_status_list(self):
-#        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
-#            if (
-#                statement_schema["properties"]["statementType"]["enum"][0]
-#                == "personStatement"
-#            ):
-#                political_exposure_schema = statement_schema["properties"].get(
-#                    "politicalExposure"
-#                )
-#                # This is only available in 0.3 and above.
-#                if isinstance(political_exposure_schema, dict):
-#                    return political_exposure_schema["properties"]["status"]["enum"]
-#                else:
-#                    return []
-#
-#    def get_inconsistent_schema_version_used_for_statement(self, statement):
-#        # If version is not set at all, then we assume it's the default version
-#        if (
-#            not isinstance(statement, dict)
-#            or "publicationDetails" not in statement
-#            or not isinstance(statement["publicationDetails"], dict)
-#            or "bodsVersion" not in statement["publicationDetails"]
-#        ):
-#            schema_version_attempted = self.config.config["schema_version"]
-#        # Or take the version from the statement
-#        else:
-#            schema_version_attempted = statement["publicationDetails"]["bodsVersion"]
-#
-#        # Are versions inconsistent
-#        if schema_version_attempted != self.schema_version_attempted:
-#            return True, str(schema_version_attempted)
-#        else:
-#            return False, None
-#
-#    def get_address_types_allowed_in_entity_statement(self):
-#        return ("registered", "business", "alternative")
-#
-#    def get_address_types_allowed_in_person_statement(self):
-#        return ("placeOfBirth", "residence", "service", "alternative")
+    #    def get_entity_statement_types_list(self):
+    #        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
+    #            if (
+    #                statement_schema["properties"]["statementType"]["enum"][0]
+    #                == "entityStatement"
+    #            ):
+    #                return statement_schema["properties"]["entityType"]["enum"]
+    #
+    #    def get_person_statement_types_list(self):
+    #        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
+    #            if (
+    #                statement_schema["properties"]["statementType"]["enum"][0]
+    #                == "personStatement"
+    #            ):
+    #                return statement_schema["properties"]["personType"]["enum"]
+    #
+    #    def get_ownership_or_control_statement_interest_statement_types_list(self):
+    #        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
+    #            if (
+    #                statement_schema["properties"]["statementType"]["enum"][0]
+    #                == "ownershipOrControlStatement"
+    #            ):
+    #                return statement_schema["properties"]["interests"]["items"][
+    #                    "properties"
+    #                ]["type"]["enum"]
+    #
+    #    def get_ownership_or_control_statement_interest_direct_or_indirect_list(self):
+    #        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
+    #            if (
+    #                statement_schema["properties"]["statementType"]["enum"][0]
+    #                == "ownershipOrControlStatement"
+    #            ):
+    #                direct_or_indirect_json_schema = statement_schema["properties"][
+    #                    "interests"
+    #                ]["items"]["properties"].get("directOrIndirect")
+    #                # This is only available in 0.3 and above.
+    #                if isinstance(direct_or_indirect_json_schema, dict):
+    #                    return direct_or_indirect_json_schema.get("enum")
+    #                else:
+    #                    return []
+    #
+    #    def get_person_statement_political_exposure_status_list(self):
+    #        for statement_schema in self._pkg_schema_obj["items"]["oneOf"]:
+    #            if (
+    #                statement_schema["properties"]["statementType"]["enum"][0]
+    #                == "personStatement"
+    #            ):
+    #                political_exposure_schema = statement_schema["properties"].get(
+    #                    "politicalExposure"
+    #                )
+    #                # This is only available in 0.3 and above.
+    #                if isinstance(political_exposure_schema, dict):
+    #                    return political_exposure_schema["properties"]["status"]["enum"]
+    #                else:
+    #                    return []
+    #
+    #    def get_inconsistent_schema_version_used_for_statement(self, statement):
+    #        # If version is not set at all, then we assume it's the default version
+    #        if (
+    #            not isinstance(statement, dict)
+    #            or "publicationDetails" not in statement
+    #            or not isinstance(statement["publicationDetails"], dict)
+    #            or "bodsVersion" not in statement["publicationDetails"]
+    #        ):
+    #            schema_version_attempted = self.config.config["schema_version"]
+    #        # Or take the version from the statement
+    #        else:
+    #            schema_version_attempted = statement["publicationDetails"]["bodsVersion"]
+    #
+    #        # Are versions inconsistent
+    #        if schema_version_attempted != self.schema_version_attempted:
+    #            return True, str(schema_version_attempted)
+    #        else:
+    #            return False, None
+    #
+    #    def get_address_types_allowed_in_entity_statement(self):
+    #        return ("registered", "business", "alternative")
+    #
+    #    def get_address_types_allowed_in_person_statement(self):
+    #        return ("placeOfBirth", "residence", "service", "alternative")
 
     def is_schema_version_equal_to_or_greater_than(self, version):
         return packaging_version.parse(self.schema_version) >= packaging_version.parse(

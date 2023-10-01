@@ -1,6 +1,7 @@
-import os
 import json
+import os
 from decimal import Decimal
+from typing import Optional, Union
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
@@ -9,6 +10,7 @@ from jsonschema.validators import Draft202012Validator
 import libcoverdls.data_reader
 from libcoverdls.schema import SchemaRDLS
 from libcoverdls.utils import create_dummy_error, get_version_from_schema_url
+
 
 class NumberStr(float):
     def __init__(self, o):
@@ -87,7 +89,9 @@ def oneOf_draft4(validator, oneOf, instance, schema):
                 context=all_errors,
             )
 
-    more_valid = [s for i, s in subschemas if validator.evolve(schema=s).is_valid(instance)]
+    more_valid = [
+        s for i, s in subschemas if validator.evolve(schema=s).is_valid(instance)
+    ]
     if more_valid:
         more_valid.append(first_valid)
         reprs = ", ".join(repr(schema) for schema in more_valid)
@@ -100,7 +104,9 @@ class JSONSchemaValidator:
     def __init__(self, schema: SchemaRDLS):
         self._schema = schema
 
-    def _source_maps(self, data_reader):
+    def _source_maps(
+        self, data_reader: libcoverdls.data_reader.DataReader
+    ) -> tuple[Union[dict, None], Union[dict, None]]:
         directory = data_reader._filename.rsplit("/", 1)[0]
         filename = data_reader._filename.split("/")[-1]
         if filename == "unflattened.json":
@@ -126,22 +132,52 @@ class JSONSchemaValidator:
             for dataset_number, dataset in enumerate(all_data):
                 version = get_version_from_schema_url(dataset)
                 if not version or version != "0.2.0":
-                    e = create_dummy_error("Unsupported schema version", ['datasets'], "schema_version", "datasets", all_data)
-                    output.append(RDLSValidationError(e, all_data, self._schema,
-                                                 cell_source_map=cell_source_map,
-                                                 heading_source_map=heading_source_map, 
-                                                 dataset_number=0))
+                    e = create_dummy_error(
+                        "Unsupported schema version",
+                        ["datasets"],
+                        "schema_version",
+                        "datasets",
+                        all_data,
+                    )
+                    output.append(
+                        RDLSValidationError(
+                            e,
+                            all_data,
+                            self._schema,
+                            cell_source_map=cell_source_map,
+                            heading_source_map=heading_source_map,
+                            dataset_number=0,
+                        )
+                    )
                 for e in validator.iter_errors(dataset):
-                    output.append(RDLSValidationError(e, dataset, self._schema,
-                                                 cell_source_map=cell_source_map,
-                                                 heading_source_map=heading_source_map, 
-                                                 dataset_number=dataset_number))
+                    output.append(
+                        RDLSValidationError(
+                            e,
+                            dataset,
+                            self._schema,
+                            cell_source_map=cell_source_map,
+                            heading_source_map=heading_source_map,
+                            dataset_number=dataset_number,
+                        )
+                    )
         else:
-            e = create_dummy_error("'datasets' is a required property", ['datasets'], "required", "datasets", all_data)
-            output.append(RDLSValidationError(e, all_data, self._schema,
-                                                 cell_source_map=cell_source_map,
-                                                 heading_source_map=heading_source_map, 
-                                                 dataset_number=0))
+            e = create_dummy_error(
+                "'datasets' is a required property",
+                ["datasets"],
+                "required",
+                "datasets",
+                all_data,
+            )
+            output.append(
+                RDLSValidationError(
+                    e,
+                    all_data,
+                    self._schema,
+                    cell_source_map=cell_source_map,
+                    heading_source_map=heading_source_map,
+                    dataset_number=0,
+                )
+            )
         return output
 
 
@@ -153,9 +189,9 @@ class RDLSValidationError:
         json_schema_exceptions_validation_error: ValidationError,
         json_data: dict,
         schema: SchemaRDLS,
-        cell_source_map: dict = None,
-        heading_source_map: dict = None,
-        dataset_number=0
+        cell_source_map: Optional[dict] = None,
+        heading_source_map: Optional[dict] = None,
+        dataset_number=0,
     ):
         self._message = json_schema_exceptions_validation_error.message
         self._path = json_schema_exceptions_validation_error.path
@@ -216,7 +252,7 @@ class RDLSValidationError:
                 path_ending = "[number]"
         else:
             if self._validator == "required":
-                path_ending = self._extra['required_key_which_is_missing']
+                path_ending = self._extra["required_key_which_is_missing"]
             else:
                 path_ending = ""
         data = {
@@ -231,6 +267,5 @@ class RDLSValidationError:
         }
         if self.cell_src_map:
             location = self._spreadsheet_location()
-            data['location'] = location
+            data["location"] = location
         return data
-

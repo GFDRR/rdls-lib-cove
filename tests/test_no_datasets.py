@@ -1,10 +1,6 @@
-import json
 import os
 import tempfile
 
-import pytest
-
-from libcoverdls.config import LibCoveRDLSConfig
 from tests.api import rdls_json_output
 
 
@@ -14,7 +10,10 @@ def test_no_datasets():
         prefix="lib-cove-rdls-tests-", dir=tempfile.gettempdir()
     )
     json_filename = os.path.join(
-        os.path.dirname(os.path.realpath(__file__)), "fixtures", "0.2", "no_datasets.json"
+        os.path.dirname(os.path.realpath(__file__)),
+        "fixtures",
+        "0.2",
+        "no_datasets.json",
     )
 
     results = rdls_json_output(cove_temp_folder, json_filename)
@@ -28,7 +27,6 @@ def test_no_datasets():
     assert results["validation_errors_count"] == 1
 
     for error in results["validation_errors"]:
-        assert error['path_ending'] == 'datasets'
-        assert error['validator'] == 'required'
-        assert error['validator_value'] == 'datasets'
-
+        assert error["path_ending"] == "datasets"
+        assert error["validator"] == "required"
+        assert error["validator_value"] == "datasets"

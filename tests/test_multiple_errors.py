@@ -19,9 +19,6 @@ def test_multiple_errors():
 
     results = rdls_json_output(cove_temp_folder, json_filename)
 
-    for result in results:
-        print(result, results[result])
-
     assert results["schema_version"] == "0.2"
     assert results["file_type"] == "json"
 

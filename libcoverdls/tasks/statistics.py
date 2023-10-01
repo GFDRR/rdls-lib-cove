@@ -2,6 +2,8 @@ from libcoverdls.base_task import AdditionalCheck
 
 
 class StatisticHazardDatasets(AdditionalCheck):
+    """Count hazard datasets"""
+
     def __init__(self, lib_cove_rdls_config, schema_object):
         super().__init__(lib_cove_rdls_config, schema_object)
         self.stat = 0
@@ -16,6 +18,8 @@ class StatisticHazardDatasets(AdditionalCheck):
 
 
 class StatisticExposureDatasets(AdditionalCheck):
+    """Count exposure datasets"""
+
     def __init__(self, lib_cove_rdls_config, schema_object):
         super().__init__(lib_cove_rdls_config, schema_object)
         self.stat = 0
@@ -30,6 +34,8 @@ class StatisticExposureDatasets(AdditionalCheck):
 
 
 class StatisticVulnerabilityDatasets(AdditionalCheck):
+    """Count vulnerability datasets"""
+
     def __init__(self, lib_cove_rdls_config, schema_object):
         super().__init__(lib_cove_rdls_config, schema_object)
         self.stat = 0
@@ -44,6 +50,8 @@ class StatisticVulnerabilityDatasets(AdditionalCheck):
 
 
 class StatisticLossDatasets(AdditionalCheck):
+    """Count loss datasets"""
+
     def __init__(self, lib_cove_rdls_config, schema_object):
         super().__init__(lib_cove_rdls_config, schema_object)
         self.stat = 0

@@ -18,13 +18,9 @@ def test_specific_links_rel():
 
     results = rdls_json_output(cove_temp_folder, json_filename)
 
-    for result in results:
-        print(result, results[result])
-
     d_count = 0
     s_count = 0
     for error in results["validation_errors"]:
-        print(error["message"])
         if "describedby" in error["message"]:
             d_count += 1
         if (

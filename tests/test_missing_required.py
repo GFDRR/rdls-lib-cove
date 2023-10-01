@@ -18,9 +18,6 @@ def test_missing_publisher_name():
 
     results = rdls_json_output(cove_temp_folder, json_filename)
 
-    for result in results:
-        print(result, results[result])
-
     assert results["schema_version"] == "0.2"
 
     assert results["validation_errors_count"] == 1

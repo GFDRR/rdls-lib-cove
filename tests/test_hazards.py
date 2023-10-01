@@ -18,11 +18,7 @@ def test_schema_0_2_file_1():
 
     results = rdls_json_output(cove_temp_folder, json_filename)
 
-    # for key in results:
-    #    print(key, results[key])
-
     assert results["schema_version"] == "0.2"
 
     assert results["validation_errors_count"] == 0
     assert results["additional_checks_count"] == 0
-    # assert False

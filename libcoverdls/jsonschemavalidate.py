@@ -1,7 +1,7 @@
 import json
 import os
 from decimal import Decimal
-from typing import Optional, Union
+from typing import Optional, Union, Tuple
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
@@ -106,7 +106,7 @@ class JSONSchemaValidator:
 
     def _source_maps(
         self, data_reader: libcoverdls.data_reader.DataReader
-    ) -> tuple[Union[dict, None], Union[dict, None]]:
+    ) -> Tuple[Union[dict, None], Union[dict, None]]:
         directory = data_reader._filename.rsplit("/", 1)[0]
         filename = data_reader._filename.split("/")[-1]
         if filename == "unflattened.json":

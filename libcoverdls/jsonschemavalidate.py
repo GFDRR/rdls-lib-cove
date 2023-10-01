@@ -4,7 +4,7 @@ from decimal import Decimal
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
-from jsonschema.validators import Draft4Validator, Draft202012Validator
+from jsonschema.validators import Draft202012Validator
 
 import libcoverdls.data_reader
 from libcoverdls.schema import SchemaRDLS
@@ -119,7 +119,6 @@ class JSONSchemaValidator:
         validator = Draft202012Validator(
             schema=self._schema._pkg_schema_obj, format_checker=FormatChecker()
         )
-        #validator.VALIDATORS["oneOf"] = oneOf_draft4
         output = []
         cell_source_map, heading_source_map = self._source_maps(data_reader)
         all_data = data_reader.get_all_data()
@@ -202,15 +201,12 @@ class RDLSValidationError:
 
         heading = self.heading_src_map.get(f"{path_no_number}/{self._message}")
         if heading:
-            field_name = heading[0][1]
             value["header"] = heading[0][1]
         return value
 
     def json(self):
         """Return representation of this error in JSON."""
 
-        #for name in self.__dir__():
-        #    print(name, getattr(self, name))
         if len(self._path) > 0:
             path_ending = self._path[-1]
             if isinstance(self._path[-1], int) and len(self._path) >= 2:
@@ -230,7 +226,6 @@ class RDLSValidationError:
             "schema_path": list(self._schema_path),
             "validator": self._validator,
             "validator_value": self._validator_value,
-            # "context": self._context,
             "instance": self._instance,
             "extra": self._extra,
         }

@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 from libcoverdls.base_task import AdditionalCheck
 
 

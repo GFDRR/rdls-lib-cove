@@ -1,7 +1,7 @@
 import json
 import os
 from decimal import Decimal
-from typing import Optional, Union, Tuple
+from typing import Optional, Tuple, Union
 
 from jsonschema import FormatChecker
 from jsonschema.exceptions import ValidationError
